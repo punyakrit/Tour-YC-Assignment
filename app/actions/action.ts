@@ -43,7 +43,11 @@ export async function UserSignUp(formData: FormData) {
 
   const { error: profileError } = await supabase
     .from('profiles')
-    .insert({ id: signUpData?.user?.id, name: data.name });
+    .insert({
+      id: signUpData?.user?.id,
+      name: data.name,
+      email: data.email,
+    });
 
   if (profileError) {
     return redirect('/signup?message=Could not create user profile');
@@ -52,6 +56,7 @@ export async function UserSignUp(formData: FormData) {
   revalidatePath('/');
   return redirect('/');
 }
+
 
 export async function signOut() {
   const supabase = createClient();
@@ -75,4 +80,28 @@ export async function oAuth() {
   }
 
   return redirect(data.url);
+}
+
+
+export default async function storeBio(formData: { bio: any; }, bioText?: any) {
+  const supabase = createClient();
+
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+
+    const { error } = await supabase
+      .from('profiles')
+      .upsert({
+        id: user?.id,
+        bio: formData.bio,
+      });
+
+    if (error) {
+      throw error;
+    }
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: 'Failed to store bio' };
+  }
 }
