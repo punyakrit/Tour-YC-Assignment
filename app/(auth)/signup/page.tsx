@@ -1,7 +1,6 @@
-import { ChromeIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import {  UserSignUp } from "../../actions/action";
+import { UserSignUp } from "../../actions/action";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import GoogleLoginButton from "@/components/UI/GoogleLoginButton";
@@ -14,19 +13,20 @@ async function Signup() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if(user){
-    redirect('/')
+  if (user) {
+    redirect('/');
   }
+  
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white rounded-lg p-8 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gray-900 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 bg-gray-950 border shadow-white rounded-lg p-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">
             Register Your Account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-white/80">
             Or{" "}
-            <Link href="/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/signin" className="font-medium text-white/80 hover:text-white">
               sign in to your existing account
             </Link>
           </p>
@@ -43,7 +43,7 @@ async function Signup() {
                 type="text"
                 autoComplete="name"
                 required
-                className="relative block w-full appearance-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                className="relative bg-transparent text-white block w-full appearance-none rounded-t-md border border-gray-300 px-3 py-2 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 placeholder="Name"
               />
             </div>
@@ -57,7 +57,7 @@ async function Signup() {
                 type="email"
                 autoComplete="email"
                 required
-                className="relative block w-full appearance-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                className="relative bg-transparent text-white block w-full appearance-none border border-gray-300 px-3 py-2 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 placeholder="Email address"
               />
             </div>
@@ -71,7 +71,7 @@ async function Signup() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="relative block w-full appearance-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                className="relative bg-transparent text-white block w-full appearance-none rounded-b-md border border-gray-300 px-3 py-2 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 placeholder="Password"
               />
             </div>
@@ -84,8 +84,7 @@ async function Signup() {
             >
               Register
             </button>
-            <GoogleLoginButton/>
-
+            <GoogleLoginButton />
           </div>
         </form>
       </div>

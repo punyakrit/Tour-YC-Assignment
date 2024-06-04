@@ -18,15 +18,15 @@ async function SignIn() {
     redirect('/')
   }
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white rounded-lg p-8 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gray-900 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 bg-gray-950 border shadow-white rounded-lg p-8 ">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">
             Sign In to Your Account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-white/80">
             Or{" "}
-            <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/signup" className="font-medium text-white/80 hover:text-white">
               create a new account
             </Link>
           </p>
@@ -34,7 +34,7 @@ async function SignIn() {
         <form className="mt-8 space-y-6" action="#" method="POST">
           <div className="-space-y-px rounded-md shadow-sm">
             <div className="py-2">
-              <label htmlFor="email" className="sr-only">
+              <label htmlFor="email" className="sr-only ">
                 Email address
               </label>
               <input
@@ -42,8 +42,9 @@ async function SignIn() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                
                 required
-                className="relative block w-full appearance-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                className="relative bg-transparent text-white block w-full appearance-none rounded-t-md border border-gray-300 px-3 py-2  placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 placeholder="Email address"
               />
             </div>
@@ -57,29 +58,12 @@ async function SignIn() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="relative block w-full appearance-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                className="relative bg-transparent text-white block w-full appearance-none rounded-b-md border border-gray-300 px-3 py-2  placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 placeholder="Password"
               />
             </div>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember_me"
-                name="remember_me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
-            </div>
-            <div className="text-sm">
-              <Link href="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Forgot your password?
-              </Link>
-            </div>
-          </div>
+          
           <div className="grid grid-cols-1 gap-4">
             <button
               type="submit"

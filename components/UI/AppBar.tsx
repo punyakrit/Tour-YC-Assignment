@@ -26,8 +26,7 @@ async function AppBar() {
   const displayName = profile?.name || user?.user_metadata?.name || "User";
 
   return (
-    <div className="bg-indigo-600 text-white p-4 flex justify-between items-center">
-      <div className="text-lg font-semibold">Welcome, {displayName}</div>
+    <div className=" fixed w-screen text-white p-4 flex justify-end items-center">
 
       <form action={signOut} className="flex items-center">
         <button className="mx-10 border px-3 py-2">Sign Out</button>
