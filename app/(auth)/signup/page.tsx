@@ -1,9 +1,10 @@
 import { ChromeIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { emailLogin, UserSignUp } from "../../actions/action";
+import {  UserSignUp } from "../../actions/action";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import GoogleLoginButton from "@/components/UI/GoogleLoginButton";
 
 async function Signup() {
 
@@ -83,14 +84,8 @@ async function Signup() {
             >
               Register
             </button>
-            <button
-              type="button"
-              formAction={emailLogin}
-              className="group relative flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              <ChromeIcon className="mr-2 h-5 w-5" />
-              Sign in with Google
-            </button>
+            <GoogleLoginButton/>
+
           </div>
         </form>
       </div>
